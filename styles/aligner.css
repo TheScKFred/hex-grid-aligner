@@ -1,0 +1,230 @@
+/* Owlbear Rodeo 2.0 Style Top Stepper Pill */
+.hga-stepper-pill {
+  position: fixed;
+  top: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10000;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 16px;
+  background: rgba(34, 38, 48, 0.94);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 999px;
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.45);
+  font-family: "Inter", "Signika", system-ui, -apple-system, sans-serif;
+  user-select: none;
+}
+
+.hga-step-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: transparent;
+  border: none;
+  padding: 4px 6px;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.55);
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: none;
+  width: auto;
+  line-height: 1;
+  transition: color 0.15s ease;
+}
+
+.hga-step-btn:hover,
+.hga-step-btn:focus {
+  background: transparent;
+  box-shadow: none;
+  color: #ffffff;
+}
+
+.hga-step-btn.active,
+.hga-step-btn.done {
+  color: #a992ff;
+}
+
+.hga-step-icon {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 255, 255, 0.35);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  color: #1c1e26;
+  transition: all 0.15s ease;
+}
+
+.hga-step-btn.active .hga-step-icon,
+.hga-step-btn.done .hga-step-icon {
+  background: #9f85ff;
+  border-color: #9f85ff;
+  color: #1c1e26;
+}
+
+.hga-step-icon .hga-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #1c1e26;
+}
+
+.hga-step-line {
+  width: 34px;
+  height: 1.5px;
+  background: rgba(255, 255, 255, 0.22);
+  transition: background 0.2s ease;
+}
+
+.hga-step-line.done {
+  background: #9f85ff;
+}
+
+/* Bottom Floating Toolbar Dock */
+.hga-dock {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 10000;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  font-family: "Inter", "Signika", system-ui, -apple-system, sans-serif;
+  user-select: none;
+}
+
+.hga-dock-main {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  background: rgba(34, 38, 48, 0.94);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 999px;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.5);
+}
+
+.hga-icon-btn,
+.hga-pill-btn,
+.hga-primary-btn {
+  border: none;
+  margin: 0;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 600;
+  line-height: 1;
+  width: auto;
+  box-shadow: none;
+  transition: all 0.15s ease;
+}
+
+.hga-icon-btn {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  color: #dcdfe6;
+}
+
+.hga-icon-btn:hover:not(:disabled) {
+  background: rgba(255, 255, 255, 0.1);
+  color: #ffffff;
+  box-shadow: none;
+}
+
+.hga-icon-btn.active {
+  background: #9f85ff;
+  color: #1b1d24;
+}
+
+.hga-icon-btn:disabled,
+.hga-pill-btn:disabled,
+.hga-primary-btn:disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.hga-pill-btn {
+  padding: 7px 12px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  color: #e4e7ef;
+}
+
+.hga-pill-btn:hover {
+  background: rgba(255, 255, 255, 0.16);
+  color: #ffffff;
+  box-shadow: none;
+}
+
+.hga-primary-btn {
+  padding: 8px 16px;
+  border-radius: 999px;
+  background: #ff6a00;
+  color: #ffffff;
+  font-weight: 700;
+}
+
+.hga-primary-btn:hover:not(:disabled) {
+  background: #ff8126;
+  box-shadow: 0 0 12px rgba(255, 106, 0, 0.45);
+}
+
+.hga-close-btn:hover {
+  background: rgba(255, 75, 75, 0.22);
+  color: #ff6b6b;
+}
+
+.hga-divider {
+  width: 1px;
+  height: 20px;
+  background: rgba(255, 255, 255, 0.15);
+  margin: 0 2px;
+}
+
+.hga-points-badge {
+  font-size: 12px;
+  font-weight: 600;
+  color: #a992ff;
+  padding: 4px 8px;
+  background: rgba(159, 133, 255, 0.14);
+  border-radius: 999px;
+}
+
+.hga-dock-hint {
+  padding: 5px 14px;
+  border-radius: 999px;
+  background: rgba(22, 25, 32, 0.85);
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+}
+
+/* Circular Magnifying Loupe centered on cursor (Owlbear Rodeo style) */
+.hga-loupe-canvas {
+  position: fixed;
+  z-index: 10001;
+  width: 220px;
+  height: 220px;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  pointer-events: none;
+  box-shadow: 0 10px 32px rgba(0, 0, 0, 0.65);
+}
+
+.hga-loupe-canvas[hidden] {
+  display: none !important;
+}
