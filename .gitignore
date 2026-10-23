@@ -2,6 +2,10 @@
 module.zip
 dist/
 
+# Release scripts
+publish.ps1
+*.ps1
+
 # Secrets
 .env
 .env.*
@@ -10,3 +14,4 @@ dist/
 .DS_Store
 Thumbs.db
 .vscode/
+

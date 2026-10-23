@@ -1,0 +1,49 @@
+name: Release
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      version:
+        description: 'Version tag (e.g. v1.0.0)'
+        required: false
+
+jobs:
+  build-and-release:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Run tests
+        run: node tests/test-tps-and-hex.mjs
+
+      - name: Stamp version and download URL in module.json
+        run: |
+          TAG="${{ github.event.release.tag_name || github.event.inputs.version || github.ref_name }}"
+          if [[ "$TAG" =~ ^v[0-9] ]]; then
+            VERSION="${TAG#v}"
+            sed -i -E "s/\"version\":\s*\"[^\"]*\"/\"version\": \"$VERSION\"/" module.json
+            sed -i -E "s|\"download\":\s*\"[^\"]*\"|\"download\": \"https://github.com/${{ github.repository }}/releases/download/$TAG/module.zip\"|" module.json
+          fi
+
+      - name: Package module.zip
+        run: |
+          mkdir -p dist
+          zip -r dist/module.zip module.json README.md scripts styles
+
+      - name: Upload Release Assets
+        uses: softprops/action-gh-release@v2
+        if: github.event_name == 'release' || startsWith(github.ref, 'refs/tags/')
+        with:
+          files: |
+            module.json
+            dist/module.zip
